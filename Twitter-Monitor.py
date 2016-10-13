@@ -99,12 +99,10 @@ for tweet in iterator:
         continue
     else:
         # Check if it's a fully monitored account
-        for id in FULL_MONITOR:
-            if tweet['user']['id_str'] == id:
-                ProcessHit(tweet, "*Full Monitored*")
-            # Otherwise check for keywords
-            else:
-                result = ParseTweet(tweet['text'])
-                if result:
-                    ProcessHit(tweet, result)
-                    print tweet
+        if tweet['user']['id_str'] in FULL_MONITOR:
+            ProcessHit(tweet, "*Full Monitored*")
+        # Otherwise check for keywords
+        else:
+            result = ParseTweet(tweet['text'])
+            if result:
+                ProcessHit(tweet, result)
