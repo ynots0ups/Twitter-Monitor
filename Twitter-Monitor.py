@@ -69,7 +69,7 @@ def ProcessHit(tweet, keyword):
     timestamp   = datetime.datetime.fromtimestamp(int(tweet['timestamp_ms'])/1000).strftime('%Y-%m-%d %H:%M:%S')
     screenname  = tweet['user']['screen_name']
     e_subject   = 'Found tweet from @{} matching keyword: {}'.format(screenname, keyword)
-    e_body      = 'Time of Tweet: {}\nUsername: @{}\nTweet Content: "{}"\nKeyword Hit: {}\nLink: https://twitter.com/{}/status/{}{}'.format(timestamp, screenname, tweet['text'].encode('utf-8'), screenname, keyword, tweet['id'], E_SIGNATURE)
+    e_body      = 'Time of Tweet: {}\nUsername: @{}\nTweet Content: "{}"\nKeyword Hit: {}\nLink: https://twitter.com/{}/status/{}{}'.format(timestamp, screenname, tweet['text'].encode('utf-8'), keyword, screenname, tweet['id'], E_SIGNATURE)
     SendNotify(e_subject, e_body)
 
 def SendNotify(subject, body):
