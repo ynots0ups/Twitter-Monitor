@@ -92,7 +92,7 @@ fullmonitored = ",".join(FULL_MONITOR)
 # Start receiving data from twitter matching the accounts we are monitoring
 iterator = twitter_stream.statuses.filter(track=ACCOUNT_LIST,follow=fullmonitored)
 
-# Once we get a hit we will do shit
+# Once we get a hit we will do things
 for tweet in iterator:
     # Check if it was a delete event - ignore if so
     if 'delete' in tweet:
